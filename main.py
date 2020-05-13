@@ -1,7 +1,7 @@
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 
 #Set the video
-video = VideoFileClip("main.mp4").subclip(50,55)
+video = VideoFileClip("main.mp4")
 
 filenameParts = video.reader.filename.split('.')
 
@@ -11,19 +11,30 @@ for i,part in enumerate(filenameParts):
     if i != len(filenameParts)-1:
         filename += part
     
-text = "Díl 2 - \n Admin konzole, konfigurace domeny a tvorba identit uživatelů"
+text = "Díl 2"
 
+w,h = moviesize = video.size
 
 textParts = text.split("\n")
 for part in textParts:
-    ftSz = 120-(len(part))
+    ftSz = 180-(len(part))
     if(len(part) > 70):
-        ftSz = 120-(0.8*len(text))
+        ftSz = 180-(0.8*len(text))
 
+duration = 5
 # Create the text
-txt_clip = ( TextClip(text,fontsize=ftSz,color='white', font=r'fonts\SEGUISB.TTF')
-             .set_position('center')
-             .set_duration(5) )
+txt_clip = ( 
+    TextClip(text,fontsize=ftSz,color='white', font='fonts/SEGOEUIB.TTF')
+             .set_position('left')
+             .set_duration(2) 
+            )
 
-result = CompositeVideoClip([video, txt_clip]) # Overlay text on video
+txt_mov = txt_clip.set_pos( lambda t: ( # animate the text
+    max(w/15,
+    int(w-1.2*w*t)
+    ),
+    max(1.8*h/6,int(100*t))) 
+)
+
+result = CompositeVideoClip([video, txt_mov]) # Overlay text on video
 result.write_videofile(filename+"_edited."+ext,fps=video.reader.fps) # Many options...
