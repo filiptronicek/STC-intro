@@ -11,15 +11,18 @@ for i,part in enumerate(filenameParts):
     if i != len(filenameParts)-1:
         filename += part
     
-text = "Díl 2"
+text = "Machine learning"
 
 w,h = moviesize = video.size
 
 textParts = text.split("\n")
-for part in textParts:
-    ftSz = 180-(len(part))
-    if(len(part) > 70):
-        ftSz = 180-(0.8*len(text))
+
+# for part in textParts:
+#     ftSz = 180-(len(part))
+#     if(len(part) > 70):
+#         ftSz = 180-(0.8*len(text))
+
+ftSz = 180
 
 duration = 5
 # Create the text
