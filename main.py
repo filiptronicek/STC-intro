@@ -27,13 +27,13 @@ ftSz = 250
 txt_clip = ( 
     TextClip(text,fontsize=ftSz,color='white', font='fonts/SEGOEUIB.TTF')
              .set_position('left')
-             .set_start(0.5)
-             .set_duration(1.5) 
+             .set_start(0.6)
+             .set_duration(1.4) 
             )
 
 txt_mov = txt_clip.set_pos( 
     lambda t: ( # animate the text
-        min((w*0.03), int(-txt_clip.w-500 + 0.6666*w*t)), #X
+        min((w*0.03), int(-txt_clip.w-500 + 2.7*w*t)), #X
         max(1.8*h/6,  #Y
         int(100*t) #Y
         )
