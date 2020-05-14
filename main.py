@@ -1,7 +1,7 @@
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 
 #Set the video
-video = VideoFileClip("main.mp4")
+video = VideoFileClip("blank.mp4")
 
 filenameParts = video.reader.filename.split('.')
 
@@ -11,7 +11,7 @@ for i,part in enumerate(filenameParts):
     if i != len(filenameParts)-1:
         filename += part
     
-text = "Machine learning"
+text = "LOREM IPSUM"
 
 w,h = moviesize = video.size
 
@@ -30,12 +30,11 @@ txt_clip = (
              .set_duration(2) 
             )
 
-txt_mov = txt_clip.set_pos( lambda t: ( # animate the text
-        max((w/100),
-        int(0.5*w*t)
-    ),
-        max(1.8*h/6,
-        int(100*t)
+txt_mov = txt_clip.set_pos( 
+    lambda t: ( # animate the text
+        min((w*0.03), int(-txt_clip.w + 2*w*t)), #X
+        max(1.8*h/6,  #Y
+        int(100*t) #Y
         )
     ) 
 )
