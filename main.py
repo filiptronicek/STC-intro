@@ -23,8 +23,6 @@ textParts = text.split("\n")
 #         ftSz = 180-(0.8*len(text))
 
 ftSz = 180
-
-duration = 5
 # Create the text
 txt_clip = ( 
     TextClip(text,fontsize=ftSz,color='white', font='fonts/SEGOEUIB.TTF')
@@ -33,10 +31,13 @@ txt_clip = (
             )
 
 txt_mov = txt_clip.set_pos( lambda t: ( # animate the text
-    max(w/15,
-    int(w-1.2*w*t)
+        max((w/100),
+        int(0.5*w*t)
     ),
-    max(1.8*h/6,int(100*t))) 
+        max(1.8*h/6,
+        int(100*t)
+        )
+    ) 
 )
 
 result = CompositeVideoClip([video, txt_mov]) # Overlay text on video
