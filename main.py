@@ -17,11 +17,6 @@ w,h = moviesize = video.size
 
 textParts = text.split("\n")
 
-# for part in textParts:
-#     ftSz = 180-(len(part))
-#     if(len(part) > 70):
-#         ftSz = 180-(0.8*len(text))
-
 ftSz = 250
 # Create the text
 txt_clip = ( 
