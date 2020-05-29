@@ -1,4 +1,5 @@
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
+import os, sys
 
 #Set the video
 video = VideoFileClip("blank.mp4")
@@ -39,4 +40,4 @@ def generate(text):
     result = CompositeVideoClip([video, txt_mov]) # Overlay text on video
     result.write_videofile(filename+"_edited."+ext,fps=video.reader.fps) # Many options...
     return filename
-generate(text = "LOREM IPSUM")
+generate(text = sys.argv[1])
