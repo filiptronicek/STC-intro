@@ -35,8 +35,7 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Install dependencies
       run: |
-        pipenv shell
-        pipenv install
+        pip install -r requirements.txt
         
     - name: Execute script
       run: python main.py Test
