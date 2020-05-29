@@ -43,7 +43,7 @@ jobs:
         pip install -r requirements.txt
         
     - name: Execute script
-      run: python main.py Test
+      run: python main.py "Now this is epic"
       
     - uses: mikeal/publish-to-github-action@master
       env:
