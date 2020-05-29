@@ -40,6 +40,4 @@ def generate(text):
     result = CompositeVideoClip([video, txt_mov]) # Overlay text on video
     result.write_videofile(filename+"_edited."+ext,fps=video.reader.fps) # Many options...
     return filename
-with open("title.txt", "r") as f:
-    lines = f.readlines()
-generate(text = lines[0])
+generate(text = sys.argv[1])
