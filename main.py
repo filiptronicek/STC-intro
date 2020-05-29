@@ -1,5 +1,5 @@
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
-import os, sys
+import os, sys, shutil
 
 #Set the video
 video = VideoFileClip("blank.mp4")
@@ -36,8 +36,9 @@ def generate(text):
             )
         ) 
     )
-
+    rName = text+"."+ext
     result = CompositeVideoClip([video, txt_mov]) # Overlay text on video
-    result.write_videofile(filename+"_edited."+ext,fps=video.reader.fps) # Many options...
+    result.write_videofile(rName,fps=video.reader.fps) # Many options...
+    shutil.move(rName, "render/"+rName)
     return filename
 generate(text = sys.argv[1])
