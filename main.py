@@ -13,6 +13,7 @@ for i,part in enumerate(filenameParts):
 
 w,h = moviesize = video.size
 
+outDir = "out/"
 
 ftSz = 250
 def generate(text):
@@ -38,4 +39,4 @@ def generate(text):
     result = CompositeVideoClip([video, txt_mov]) # Overlay text on video
     result.write_videofile(filename+"_edited."+ext,fps=video.reader.fps) # Many options...
     return filename
-#generate(text = "LOREM IPSUM")
+generate(text = "LOREM IPSUM")
