@@ -19,6 +19,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Install ImageMagicv
+      run: |
+        wget https://imagemagick.org/download/binaries/magick
+
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
@@ -43,4 +47,5 @@ jobs:
     - uses: mikeal/publish-to-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        IMAGEMAGICK_BINARY: ./magick
       
