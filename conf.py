@@ -1,1 +1,1 @@
-IMAGEMAGICK_BINARY = "./magick"
+IMAGEMAGICK_BINARY = "C:/Program Files/ImageMagick-7.0.10-Q16/magick.exe"
