@@ -17,7 +17,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    -name: Display Payload
+    - name: Display Payload
       - run: 'echo "field: ${{ github.event.client_payload.foo }}"'
       - run: 'echo "payload: ${{ toJson(github.event.client_payload) }}"'
     - name: Install ImageMagick
