@@ -1,5 +1,5 @@
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
-import os, sys, shutil
+import sys, shutil
 
 #Set the video
 video = VideoFileClip("no_text_4k.mp4")
