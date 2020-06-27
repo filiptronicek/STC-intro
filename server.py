@@ -1,6 +1,6 @@
 #!flask/bin/python
 from flask import Flask
-from main import generate
+from main import generateVideo
 
 app = Flask(__name__)
 
