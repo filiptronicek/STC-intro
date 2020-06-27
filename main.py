@@ -47,15 +47,17 @@ def generateVideo(text, line2):
         TextClip(line2,fontsize=ftSz,color='white', font='fonts/SEGOEUIB.TTF', align="center")
                 .set_position('left')
                 .set_start(2)
-                .set_duration(2) 
+                .set_duration(2.3) 
                 )
+    line2C = line2C.set_position(lambda t: (w*0.1, 1.8*h/6))
     line2E = ( 
     TextClip(line2,fontsize=ftSz,color='white', font='fonts/SEGOEUIB.TTF', align="center")
             .set_position('left')
-            .set_start(4)
-            .set_duration(1) 
-            .fadeout(1)
+            .set_start(4.3)
+            .set_duration(0.7) 
+            .fadeout(0.7)
             )
+    line2E = line2E.set_position(lambda t: (w*0.1, 1.8*h/6))
     txt_mov = txt_clip.set_pos( 
         lambda t: ( # animate the text
             min((w*0.1), int(-txt_clip.w-500 + 2.7*w*t)), #X
