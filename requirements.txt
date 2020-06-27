@@ -1,2 +1,2 @@
-moviepy
+pip install moviepy==1.0.3
 flask
