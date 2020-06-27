@@ -18,14 +18,14 @@ outDir = "out/"
 charLimit = 17
 
 ftSz = 250
-def generate(text):
+def generateVideo(text):
     sum = 0
     fnlTxt = ""
     lines = [[],[]]
-    for i,c in enumerate(text.split(" ")):
+    for ind,c in enumerate(text.split(" ")):
         if sum + len(c) <= charLimit:
             lines[0] += c
-            if i != 0: fnlTxt += " "
+            if ind != 0: fnlTxt += " "
             fnlTxt += c
             sum += len(c)
         elif sum +len(c) <= charLimit * 2:
@@ -56,4 +56,4 @@ def generate(text):
     result.write_videofile(rName,fps=video.reader.fps) # Many options...
     shutil.move(rName, "render/"+rName)
     return filename
-generate(text = sys.argv[1])
+generateVideo(text = sys.argv[1])
