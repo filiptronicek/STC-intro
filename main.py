@@ -18,7 +18,9 @@ w,h = moviesize = video.size
 outDir = "out/"
 charLimit = 17
 
+fontPth = "fonts/SEGOEUIB.TTF"
 ftSz = 250
+
 def generateVideo(text, line2):
     sum = 0
     fnlTxt = ""
@@ -38,20 +40,20 @@ def generateVideo(text, line2):
     print(fnlTxt)
     # Create the text
     txt_clip = ( 
-        TextClip(fnlTxt,fontsize=ftSz,color='white', font='fonts/SEGOEUIB.TTF', align="West")
+        TextClip(fnlTxt,fontsize=ftSz,color='white', font=fontPth, align="West")
                 .set_position('left')
                 .set_start(0.6)
                 .set_duration(1.4) 
                 )
     line2C = ( 
-        TextClip(line2,fontsize=ftSz,color='white', font='fonts/SEGOEUIB.TTF', align="center")
+        TextClip(line2,fontsize=ftSz,color='white', font=fontPth, align="center")
                 .set_position('left')
                 .set_start(2)
                 .set_duration(2.4) 
                 )
     line2C = line2C.set_position(lambda t: (w*0.1, 1.8*h/6))
     line2E = ( 
-    TextClip(line2,fontsize=ftSz,color='white', font='fonts/SEGOEUIB.TTF', align="center")
+    TextClip(line2,fontsize=ftSz,color='white', font=fontPth, align="center")
             .set_position('left')
             .set_start(4.4)
             .set_duration(0.6) 
