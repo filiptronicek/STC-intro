@@ -21,7 +21,7 @@ charLimit = 17
 fontPth = "fonts/SEGOEUIB.TTF"
 ftSz = 250
 
-def generateVideo(text, line2):
+def generateVideo(text, line2, vId):
     sum = 0
     fnlTxt = ""
     lines = [[],[]]
@@ -69,9 +69,14 @@ def generateVideo(text, line2):
         ) 
     )
     rName = text+"."+ext
-    nName = f"{sys.argv[3]}.{ext}"
+    nName = f"{vId}.{ext}"
     result = CompositeVideoClip([video, txt_mov, line2C, line2E]) # Overlay text on video
     result.write_videofile(rName,fps=video.reader.fps) # Many options...
     shutil.move(rName, "render/"+nName) # Moves the video file to the render directory
     return filename
-generateVideo(text = sys.argv[1], line2 = sys.argv[2])                                                                                                                             
+
+videoTitle =  sys.argv[1]
+descriptionText = sys.argv[2]
+vidId = sys.argv[3]
+
+generateVideo(text = videoTitle, line2 = descriptionText, vId = vidId)                                                                                                                             
