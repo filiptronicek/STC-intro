@@ -43,7 +43,7 @@ jobs:
         pip install -r requirements.txt
         
     - name: Execute script
-      run: python main.py "${{ github.event.client_payload.name }}" "${{ github.event.client_payload.desc }}"
+      run: python main.py "${{ github.event.client_payload.name }}" "${{ github.event.client_payload.desc }}" "${{ github.event.client_payload.id }}"
       
     - uses: mikeal/publish-to-github-action@master
       env:
