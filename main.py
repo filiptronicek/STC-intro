@@ -1,6 +1,6 @@
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 from moviepy.video.fx import fadeout
-import sys, shutil
+import sys, shutil, os
 
 #Set the video
 video = VideoFileClip("no_text_4k.mp4")
@@ -79,4 +79,6 @@ videoTitle =  sys.argv[1]
 descriptionText = sys.argv[2]
 vidId = sys.argv[3]
 
-generateVideo(text = videoTitle, line2 = descriptionText, vId = vidId)                                                                                                                             
+PATH = f"render/{vidId}.mp4"
+if not os.path.isfile(PATH) and not os.access(PATH, os.R_OK):
+    generateVideo(text = videoTitle, line2 = descriptionText, vId = vidId)
