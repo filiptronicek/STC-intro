@@ -48,38 +48,28 @@ def generateVideo(text, line2, vId):
             sum += len(c)
     print(fnlTxt)
     # Create the text
-    txt_clip = (
-        TextClip(fnlTxt, fontsize=ftSz, color="white", font=fontPth, align="West")
-        .set_position("left")
-        .set_start(0.6)
-        .set_duration(1.4)
-    )
-    line2C = (
-        TextClip(line2, fontsize=ftSz, color="white", font=fontPth, align="center")
-        .set_position("left")
-        .set_start(2)
-        .set_duration(2.4)
-    )
+    txt_clip = (TextClip(
+        fnlTxt, fontsize=ftSz, color="white", font=fontPth,
+        align="West").set_position("left").set_start(0.6).set_duration(1.4))
+    line2C = (TextClip(
+        line2, fontsize=ftSz, color="white", font=fontPth,
+        align="center").set_position("left").set_start(2).set_duration(2.4))
     line2C = line2C.set_position(lambda t: (w * 0.1, 1.8 * h / 6))
-    line2E = (
-        TextClip(line2, fontsize=ftSz, color="white", font=fontPth, align="center")
-        .set_position("left")
-        .set_start(4.4)
-        .set_duration(0.6)
-        .fadeout(0.6)
-    )
+    line2E = (TextClip(line2,
+                       fontsize=ftSz,
+                       color="white",
+                       font=fontPth,
+                       align="center").set_position("left").set_start(
+                           4.4).set_duration(0.6).fadeout(0.6))
     line2E = line2E.set_position(lambda t: (w * 0.1, 1.8 * h / 6))
-    txt_mov = txt_clip.set_pos(
-        lambda t: (  # animate the text
-            min((w * 0.1), int(-txt_clip.w - 500 + 2.7 * w * t)),  # X
-            max(1.8 * h / 6, int(100 * t)),  # Y  # Y
-        )
-    )
+    txt_mov = txt_clip.set_pos(lambda t: (  # animate the text
+        min((w * 0.1), int(-txt_clip.w - 500 + 2.7 * w * t)),  # X
+        max(1.8 * h / 6, int(100 * t)),  # Y  # Y
+    ))
     rName = text + "." + ext
     nName = f"{vId}.{ext}"
-    result = CompositeVideoClip(
-        [video, txt_mov, line2C, line2E]
-    )  # Overlay text on video
+    result = CompositeVideoClip([video, txt_mov, line2C,
+                                 line2E])  # Overlay text on video
     result.write_videofile(rName, fps=video.reader.fps)  # Many options...
     # Moves the video file to the render directory
     shutil.move(rName, "render/" + nName)
