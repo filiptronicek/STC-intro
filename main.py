@@ -2,7 +2,9 @@ import os
 import shutil
 import sys
 
-from moviepy.editor import CompositeVideoClip, TextClip, VideoFileClip
+from moviepy.editor import CompositeVideoClip
+from moviepy.editor import TextClip
+from moviepy.editor import VideoFileClip
 from moviepy.video.fx import fadeout
 
 # Set the video
