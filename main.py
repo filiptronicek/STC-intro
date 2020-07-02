@@ -1,8 +1,9 @@
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
-from moviepy.video.fx import fadeout
-import sys
-import shutil
 import os
+import shutil
+import sys
+
+from moviepy.editor import CompositeVideoClip, TextClip, VideoFileClip
+from moviepy.video.fx import fadeout
 
 # Set the video
 video = VideoFileClip("no_text_4k.mp4")
